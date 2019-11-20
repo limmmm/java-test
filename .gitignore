@@ -4,4 +4,4 @@
 *.prefs
 *.classpath
 *.factorypath
-.idea/vcs.xml
+.idea/*
