@@ -1,6 +1,5 @@
 package httptest;
 
-import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
 
@@ -16,7 +15,7 @@ public class Test {
 
 
         for(int t=0; t < 100000; t++) {
-            long time = new Date().getTime();
+            long time = System.currentTimeMillis();
             System.out.println(time);
 
             HashMap<String, Object> paramMap = new HashMap<>();
