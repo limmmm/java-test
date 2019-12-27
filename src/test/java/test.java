@@ -1,9 +1,6 @@
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author: Lim
@@ -11,71 +8,22 @@ import java.util.Map;
  */
 public class test {
     public static void main(String[] args) {
-      String str = "{\n" +
-              "  \"units\": [\n" +
-              "    {\n" +
-              "      \"extend\": {\n" +
-              "        \"orgType\": \"7\",\n" +
-              "        \"weworkpartyid\": [\n" +
-              "          3344\n" +
-              "        ]\n" +
-              "      },\n" +
-              "      \"isvirtual\": false,\n" +
-              "      \"createtime\": \"2019-05-10T02:50:57.256Z\",\n" +
-              "      \"parentunits\": [\n" +
-              "        {\n" +
-              "          \"unitid\": \"44a044e0-4cf6-11e8-85c3-45ad5e3a2bd7\",\n" +
-              "          \"priority\": 1,\n" +
-              "          \"order\": 99997989\n" +
-              "        }\n" +
-              "      ],\n" +
-              "      \"unitpath\": [\n" +
-              "        \"广东省/数字广东公司/测试部门/商务厅测试\"\n" +
-              "      ],\n" +
-              "      \"unitname\": \"商务厅测试\",\n" +
-              "      \"unitid\": \"075kp0h8fqajk90msu3zqr\",\n" +
-              "      \"updatetime\": \"2019-07-16T10:55:59.227Z\"\n" +
-              "    },\n" +
-              "    {\n" +
-              "      \"extend\": {\n" +
-              "        \"orgType\": \"7\",\n" +
-              "        \"weworkpartyid\": [\n" +
-              "          118\n" +
-              "        ]\n" +
-              "      },\n" +
-              "      \"isvirtual\": false,\n" +
-              "      \"createtime\": \"2018-07-17T10:01:05.706Z\",\n" +
-              "      \"parentunits\": [\n" +
-              "        {\n" +
-              "          \"unitid\": \"gkekpo3ystkxnseufgwn5a\",\n" +
-              "          \"priority\": 1,\n" +
-              "          \"order\": 99988994\n" +
-              "        }\n" +
-              "      ],\n" +
-              "      \"unitpath\": [\n" +
-              "        \"广东省/省政府/省政府办公厅/省政务服务数据管理局/测试部门\"\n" +
-              "      ],\n" +
-              "      \"unitname\": \"测试部门\",\n" +
-              "      \"unitid\": \"9oyyed4rqwaljlcpwyyifw\",\n" +
-              "      \"updatetime\": \"2019-07-16T10:54:09.962Z\"\n" +
-              "    }\n" +
-              "  ]\n" +
-              "}";
+        String s ="广东省工业和信息化厅,广东省卫生健康委员会,国家税务总局广东省税务局,广东省市场监督管理局,中华人民共和国最高人民法院,中华人民共和国应急管理部,中华人民共和国海关总署,中华人民共和国交通运输部,中华人民共和国国家统计局,中华人民共和国国家市场监督管理总局,中华人民共和国税务总局,中华人民共和国国家发展和改革委员会,广东省市场监督管理局,广东省民政厅,中共广东省委机构编制委员会办公室,广东省司法厅,中华人民共和国税务总局,中华人民共和国交通运输部,中华人民共和国海关总署,中华人民共和国最高人民法院,中华人民共和国海关总署,中华人民共和国交通运输部,中华人民共和国国家统计局,中华人民共和国国家市场监督管理总局,中华人民共和国税务总局,中华人民共和国国家发展和改革委员会,中华人民共和国人力资源和社会保障部,中华人民共和国最高人民法院,中华人民共和国税务总局,中华人民共和国国家市场监督管理总局,中国证券监督管理委员会,中华人民共和国人力资源和社会保障部,中华人民共和国交通运输部,中华人民共和国国家发展和改革委员会,中华人民共和国最高人民法院,广东省高级人民法院";
 
-        JSONObject json = JSONObject.parseObject(str);
+        String s2 = "广东省市场监督管理局,中共广东省委机构编制委员会办公室,中华人民共和国人力资源和社会保障部,广东省卫生健康委员会,国家税务总局广东省税务局,广东省工业和信息化厅,广东省民政厅,广东省司法厅,中华人民共和国国家发展和改革委员会,广东省高级人民法院,中华人民共和国国家市场监督管理总局,中华人民共和国交通运输部";
+        Set<String> set = Arrays.stream(s.split(",")).collect(Collectors.toSet());
+        Set<String> set2 = Arrays.stream(s2.split(",")).collect(Collectors.toSet());
 
-        List units = (List) json.get("units");
+        set.removeAll(set2);
 
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("units", units);
-        for (Object object : units) {
-            Map temp = (Map) object;
-            String unitid = (String) temp.get("unitid");
-            String unitname = (String) temp.get("unitname");
-            JSONArray unitArray = (JSONArray) temp.get("unitpath");
-            String unitpath = unitArray.isEmpty() ? unitname:unitArray.get(0).toString();
-            System.out.println(temp.toString());
-            System.out.println(unitpath);
+        String insert = "insert into api_org_map (api_org) values ('%s');";
+
+        for (String s1 : set) {
+            System.out.println(String.format(insert, s1));
         }
+
+        System.out.println(set);
+
+
     }
 }

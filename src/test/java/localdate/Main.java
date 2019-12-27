@@ -3,6 +3,7 @@ package localdate;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.WeekFields;
 
 /**
  * @author: Lim
@@ -21,5 +22,7 @@ public class Main {
         System.out.println(ld1.getDayOfWeek().getValue() == DayOfWeek.MONDAY.getValue());
         System.out.println(ld2.getDayOfWeek().getValue() == DayOfWeek.SATURDAY.getValue());
         System.out.println(ld3.getDayOfWeek().getValue() == DayOfWeek.SUNDAY.getValue());
+
+        System.out.println(LocalDate.now().get(WeekFields.of(DayOfWeek.SUNDAY, 1).weekOfYear()));
     }
 }
