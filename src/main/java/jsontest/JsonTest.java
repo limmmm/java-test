@@ -1,5 +1,6 @@
 package jsontest;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JsonTest {
+    @JSONField(name = "c")
     private int a;
+
+    @JSONField(name = "d")
     private String b;
 }
