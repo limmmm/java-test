@@ -10,8 +10,11 @@ public class Main {
         String s1 = "广州市荔湾区疾病预防控制中心";
         String s2 = "广东省/广州市/荔湾区/广州市荔湾区疾病预防控制中心";
 
-        if(s2.contains("/")) {
+        /*if(s2.contains("/")) {
             System.out.println(s2.lastIndexOf(s1));
-        }
+        }*/
+
+        Integer a = null;
+        System.out.println(String.valueOf(a));
     }
 }
