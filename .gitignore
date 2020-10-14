@@ -5,4 +5,4 @@
 *.factorypath
 .idea/*
 target/*
-.idea/workspace.xml
+*.iml
