@@ -11,8 +11,8 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.lee</groupId>
-    <artifactId>lim</artifactId>
+    <groupId>com.lim.test</groupId>
+    <artifactId>java-test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
