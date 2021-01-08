@@ -4,6 +4,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Date;
 
 /**
  * LocalDataTime 操作辅助
@@ -43,6 +44,38 @@ public class LocalDateTimeUtil {
      */
     public static LocalDateTime seconds2LocalDateTime(long seconds) {
         return LocalDateTime.ofInstant(Instant.ofEpochSecond(seconds), ZoneId.systemDefault());
+    }
+
+    /**
+     * LocalDate 转为 Date
+     * @param localDate LocalDate
+     */
+    public static Date asDate(LocalDate localDate) {
+        return Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    /**
+     * LocalDateTime 转为 Date
+     * @param localDateTime LocalDateTime
+     */
+    public static Date asDate(LocalDateTime localDateTime) {
+        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    /**
+     * Date 转为 LocalDate
+     * @param date Date
+     */
+    public static LocalDate asLocalDate(Date date) {
+        return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    /**
+     * Date 转为 LocalDateTime
+     * @param date Date
+     */
+    public static LocalDateTime asLocalDateTime(Date date) {
+        return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 
     /**
