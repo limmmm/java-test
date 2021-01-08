@@ -12,6 +12,10 @@ import org.springframework.util.StopWatch;
 @Slf4j
 public class StopWatchTest {
 
+    public static void main(String[] args) throws InterruptedException {
+        runStopWatch();
+    }
+
     /**
      * StopWatch 使用
      * @throws InterruptedException InterruptedException
