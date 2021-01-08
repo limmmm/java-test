@@ -4,7 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * {@link LocalDateTimeUtil} 测试
@@ -40,6 +43,53 @@ class LocalDateTimeUtilTest {
         log.info("毫秒时间戳：{}, 时间：{}", mills, rs);
         LocalDateTime ldt = LocalDateTime.of(2020, 10, 11, 12, 13, 14, 123000000);
         Assert.assertEquals(ldt, rs);
+    }
+
+    @Test
+    void asDate() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        Date date = LocalDateTimeUtil.asDate(localDateTime);
+        log.info("LocalDateTime: {}, Date: {}", localDateTime, date);
+        log.info("LocalDateTime: {}, Date: {}", date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDateTime));
+        Assert.assertEquals(date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDateTime));
+    }
+
+    @Test
+    void testAsDate() {
+        LocalDate localDate = LocalDate.now();
+        Date date = LocalDateTimeUtil.asDate(localDate);
+        log.info("LocalDate: {}, Date: {}", localDate, date);
+        log.info("LocalDate: {}, Date: {}", date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDate.atStartOfDay()));
+        Assert.assertEquals(date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDate.atStartOfDay()));
+    }
+
+    @Test
+    void asLocalDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        Date date = calendar.getTime();
+
+        LocalDate localDate = LocalDateTimeUtil.asLocalDate(date);
+        log.info("Date: {}, LocalDate: {}", date, localDate);
+        log.info("Date: {}, LocalDate: {}", date.getTime(),
+                LocalDateTimeUtil.localDateTime2Mills(localDate.atStartOfDay()));
+        Assert.assertEquals(date.getTime(),
+                LocalDateTimeUtil.localDateTime2Mills(localDate.atStartOfDay()));
+    }
+
+    @Test
+    void asLocalDateTime() {
+        Date date = new Date();
+
+        LocalDateTime localDateTime = LocalDateTimeUtil.asLocalDateTime(date);
+        log.info("Date: {}, LocalDate: {}", date, localDateTime);
+        log.info("Date: {}, LocalDate: {}", date.getTime(),
+                LocalDateTimeUtil.localDateTime2Mills(localDateTime));
+        Assert.assertEquals(date.getTime(),
+                LocalDateTimeUtil.localDateTime2Mills(localDateTime));
     }
 
     @Test
