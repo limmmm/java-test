@@ -1,4 +1,4 @@
-package com.lim.test.thread;
+package com.lim.test.thread.excutor;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -71,18 +71,4 @@ public class ThreadPool {
             });
         }
     }
-
-    /**
-     * 周期线程池
-     */
-    public static void scheduledExecutor() throws InterruptedException {
-        ScheduledExecutorService scheduledExecutor = new ScheduledThreadPoolExecutor(1,
-                r -> new Thread(r, "schedule"));
-        scheduledExecutor.scheduleWithFixedDelay(() -> log.info("ScheduledThreadPool"), 2, 1, TimeUnit.SECONDS);
-
-        Thread.sleep(10000);
-
-        scheduledExecutor.shutdown();
-    }
-
 }

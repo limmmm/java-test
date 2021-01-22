@@ -11,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ThreadTest {
 
-    @SuppressWarnings("AlibabaAvoidManuallyCreateThread")
     public static void join() throws InterruptedException {
         // t
         Thread t = new Thread(() -> {
@@ -32,4 +31,5 @@ public class ThreadTest {
         t.join();
         t1.join();
     }
+
 }
