@@ -3,8 +3,8 @@ package com.lim.test.thread;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author Li Ming
- * @mail liming@tp-link.com.cn
+ * @author lim
+
  * @since 2021/3/11
  */
 class LockAwaitTest {

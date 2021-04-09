@@ -1,7 +1,7 @@
 package com.lim.test.localdate;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -20,7 +20,7 @@ class LocalDateUtilTest {
         LocalDate date = LocalDate.parse("2020-10-20");
         LocalDate rs = LocalDateUtil.getStartOfWeek(date);
         log.info("日期：{}，周开始：{}", date, rs);
-        Assert.assertEquals(LocalDate.parse("2020-10-18"), rs);
+        Assertions.assertEquals(LocalDate.parse("2020-10-18"), rs);
     }
 
     @Test
@@ -28,7 +28,7 @@ class LocalDateUtilTest {
         LocalDate date = LocalDate.parse("2020-10-20");
         LocalDate rs = LocalDateUtil.getEndOfWeek(date);
         log.info("日期：{}，周结束：{}", date, rs);
-        Assert.assertEquals(LocalDate.parse("2020-10-24"), rs);
+        Assertions.assertEquals(LocalDate.parse("2020-10-24"), rs);
     }
 
     @Test
@@ -36,7 +36,7 @@ class LocalDateUtilTest {
         LocalDate date = LocalDate.parse("2020-10-20");
         LocalDate rs = LocalDateUtil.getBeforeWeek(date);
         log.info("日期：{}, 一周前：{}", date, rs);
-        Assert.assertEquals(LocalDate.parse("2020-10-13"), rs);
+        Assertions.assertEquals(LocalDate.parse("2020-10-13"), rs);
     }
 
     @Test
@@ -44,7 +44,7 @@ class LocalDateUtilTest {
         LocalDate date = LocalDate.parse("2020-10-20");
         LocalDate rs = LocalDateUtil.getStartOfMonth(date);
         log.info("日期：{}, 月开始：{}", date, rs);
-        Assert.assertEquals(LocalDate.parse("2020-10-01"), rs);
+        Assertions.assertEquals(LocalDate.parse("2020-10-01"), rs);
     }
 
     @Test
@@ -52,7 +52,7 @@ class LocalDateUtilTest {
         LocalDate date = LocalDate.parse("2020-10-20");
         LocalDate rs = LocalDateUtil.getEndOfMonth(date);
         log.info("日期：{}, 月结束：{}", date, rs);
-        Assert.assertEquals(LocalDate.parse("2020-10-31"), rs);
+        Assertions.assertEquals(LocalDate.parse("2020-10-31"), rs);
     }
 
     @Test
@@ -72,10 +72,10 @@ class LocalDateUtilTest {
         log.info("日期：{}，一月前：{}", ld3, rs3);
         log.info("日期：{}，一月前：{}", ld4, rs4);
 
-        Assert.assertEquals(LocalDate.parse("2020-11-18"), rs1);
-        Assert.assertEquals(LocalDate.parse("2020-11-30"), rs2);
-        Assert.assertEquals(LocalDate.parse("2020-10-31"), rs3);
-        Assert.assertEquals(LocalDate.parse("2020-10-30"), rs4);
+        Assertions.assertEquals(LocalDate.parse("2020-11-18"), rs1);
+        Assertions.assertEquals(LocalDate.parse("2020-11-30"), rs2);
+        Assertions.assertEquals(LocalDate.parse("2020-10-31"), rs3);
+        Assertions.assertEquals(LocalDate.parse("2020-10-30"), rs4);
     }
 
     @Test
@@ -94,10 +94,10 @@ class LocalDateUtilTest {
         printWeek(ld2, rs2);
         printWeek(ld3, rs3);
         printWeek(ld4, rs4);
-        Assert.assertEquals("2020#41", rs1);
-        Assert.assertEquals("2020#42", rs2);
-        Assert.assertEquals("2020#42", rs3);
-        Assert.assertEquals("2020#43", rs4);
+        Assertions.assertEquals("2020#41", rs1);
+        Assertions.assertEquals("2020#42", rs2);
+        Assertions.assertEquals("2020#42", rs3);
+        Assertions.assertEquals("2020#43", rs4);
 
         System.out.println();
 
@@ -115,10 +115,10 @@ class LocalDateUtilTest {
         printWeek(ld6, rs6);
         printWeek(ld7, rs7);
         printWeek(ld8, rs8);
-        Assert.assertEquals("2020#1", rs5);
-        Assert.assertEquals("2020#1", rs6);
-        Assert.assertEquals("2020#1", rs7);
-        Assert.assertEquals("2020#1", rs8);
+        Assertions.assertEquals("2020#1", rs5);
+        Assertions.assertEquals("2020#1", rs6);
+        Assertions.assertEquals("2020#1", rs7);
+        Assertions.assertEquals("2020#1", rs8);
     }
 
     @Test
@@ -136,10 +136,10 @@ class LocalDateUtilTest {
         printWeek(ld2, rs2);
         printWeek(ld3, rs3);
         printWeek(ld4, rs4);
-        Assert.assertEquals("2020-10#1", rs1);
-        Assert.assertEquals("2020-10#1", rs2);
-        Assert.assertEquals("2020-10#1", rs3);
-        Assert.assertEquals("2020-10#1", rs4);
+        Assertions.assertEquals("2020-10#1", rs1);
+        Assertions.assertEquals("2020-10#1", rs2);
+        Assertions.assertEquals("2020-10#1", rs3);
+        Assertions.assertEquals("2020-10#1", rs4);
     }
 
     @Test
@@ -157,10 +157,10 @@ class LocalDateUtilTest {
         printWeek(ld2, rs2);
         printWeek(ld3, rs3);
         printWeek(ld4, rs4);
-        Assert.assertEquals("2020-09#4", rs1);
-        Assert.assertEquals("2020-10#1", rs2);
-        Assert.assertEquals("2020-10#1", rs3);
-        Assert.assertEquals("2020-10#1", rs4);
+        Assertions.assertEquals("2020-09#4", rs1);
+        Assertions.assertEquals("2020-10#1", rs2);
+        Assertions.assertEquals("2020-10#1", rs3);
+        Assertions.assertEquals("2020-10#1", rs4);
     }
 
     @Test
@@ -178,10 +178,10 @@ class LocalDateUtilTest {
         log.info("日期：{}, 月份：{}", ld2, rs2);
         log.info("日期：{}, 月份：{}", ld3, rs3);
         log.info("日期：{}, 月份：{}", ld4, rs4);
-        Assert.assertEquals("2020-10", rs1);
-        Assert.assertEquals("2020-10", rs2);
-        Assert.assertEquals("2020-11", rs3);
-        Assert.assertEquals("2020-12", rs4);
+        Assertions.assertEquals("2020-10", rs1);
+        Assertions.assertEquals("2020-10", rs2);
+        Assertions.assertEquals("2020-11", rs3);
+        Assertions.assertEquals("2020-12", rs4);
     }
 
     @Test
@@ -199,10 +199,10 @@ class LocalDateUtilTest {
         log.info("日期：{}, 年份：{}", ld2, rs2);
         log.info("日期：{}, 年份：{}", ld3, rs3);
         log.info("日期：{}, 年份：{}", ld4, rs4);
-        Assert.assertEquals("2019", rs1);
-        Assert.assertEquals("2020", rs2);
-        Assert.assertEquals("2019", rs3);
-        Assert.assertEquals("2020", rs4);
+        Assertions.assertEquals("2019", rs1);
+        Assertions.assertEquals("2020", rs2);
+        Assertions.assertEquals("2019", rs3);
+        Assertions.assertEquals("2020", rs4);
     }
 
     private static void printWeek(LocalDate date, String week) {

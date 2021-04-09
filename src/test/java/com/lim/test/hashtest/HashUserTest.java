@@ -1,9 +1,8 @@
 package com.lim.test.hashtest;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@link HashUser} 测试
@@ -18,8 +17,8 @@ class HashUserTest {
         HashUser user1 = new HashUser("1", "name", 10);
         HashUser user2 = new HashUser("1", "name", 10);
 
-        Assert.assertEquals(user1, user2);
-        assertEquals(user1.hashCode(), user2.hashCode());
+        Assertions.assertEquals(user1, user1);
+        Assertions.assertEquals(user1.hashCode(), user2.hashCode());
     }
 
 }

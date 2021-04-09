@@ -2,7 +2,6 @@ package com.lim.test.bytetrans;
 
 import lombok.extern.slf4j.Slf4j;
 
-import javax.print.attribute.standard.MediaSize;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;

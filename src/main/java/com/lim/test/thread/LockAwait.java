@@ -7,8 +7,8 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author Li Ming
- * @mail liming@tp-link.com.cn
+ * @author lim
+
  * @since 2021/3/11
  */
 @Slf4j

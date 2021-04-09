@@ -3,13 +3,9 @@ package com.lim.test.bytetrans;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
- * @author Li Ming
- * @mail liming@tp-link.com.cn
+ * @author lim
+
  * @since 2021/3/17
  */
 @Slf4j
@@ -37,5 +33,9 @@ class ByteTransTest {
 
     @Test
     void byte2int() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void main() {
     }
 }

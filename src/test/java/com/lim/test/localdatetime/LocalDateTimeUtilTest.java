@@ -1,7 +1,7 @@
 package com.lim.test.localdatetime;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -24,7 +24,7 @@ class LocalDateTimeUtilTest {
         LocalDateTime ldt = LocalDateTime.of(2020, 10, 11, 12, 13, 14, 123000000);
         long rs = LocalDateTimeUtil.localDateTime2Mills(ldt);
         log.info("时间：{}, 毫秒时间戳：{}", ldt, rs);
-        Assert.assertEquals(1602389594123L, rs);
+        Assertions.assertEquals(1602389594123L, rs);
     }
 
     @Test
@@ -33,7 +33,7 @@ class LocalDateTimeUtilTest {
         LocalDateTime ldt = LocalDateTime.of(2020, 10, 11, 12, 13, 14, 123000000);
         long rs = LocalDateTimeUtil.localDateTime2Seconds(ldt);
         log.info("时间：{}, 秒时间戳：{}", ldt, rs);
-        Assert.assertEquals(1602389594L, rs);
+        Assertions.assertEquals(1602389594L, rs);
     }
 
     @Test
@@ -42,7 +42,7 @@ class LocalDateTimeUtilTest {
         LocalDateTime rs = LocalDateTimeUtil.mills2LocalDateTime(mills);
         log.info("毫秒时间戳：{}, 时间：{}", mills, rs);
         LocalDateTime ldt = LocalDateTime.of(2020, 10, 11, 12, 13, 14, 123000000);
-        Assert.assertEquals(ldt, rs);
+        Assertions.assertEquals(ldt, rs);
     }
 
     @Test
@@ -51,7 +51,7 @@ class LocalDateTimeUtilTest {
         Date date = LocalDateTimeUtil.asDate(localDateTime);
         log.info("LocalDateTime: {}, Date: {}", localDateTime, date);
         log.info("LocalDateTime: {}, Date: {}", date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDateTime));
-        Assert.assertEquals(date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDateTime));
+        Assertions.assertEquals(date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDateTime));
     }
 
     @Test
@@ -60,7 +60,7 @@ class LocalDateTimeUtilTest {
         Date date = LocalDateTimeUtil.asDate(localDate);
         log.info("LocalDate: {}, Date: {}", localDate, date);
         log.info("LocalDate: {}, Date: {}", date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDate.atStartOfDay()));
-        Assert.assertEquals(date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDate.atStartOfDay()));
+        Assertions.assertEquals(date.getTime(), LocalDateTimeUtil.localDateTime2Mills(localDate.atStartOfDay()));
     }
 
     @Test
@@ -76,7 +76,7 @@ class LocalDateTimeUtilTest {
         log.info("Date: {}, LocalDate: {}", date, localDate);
         log.info("Date: {}, LocalDate: {}", date.getTime(),
                 LocalDateTimeUtil.localDateTime2Mills(localDate.atStartOfDay()));
-        Assert.assertEquals(date.getTime(),
+        Assertions.assertEquals(date.getTime(),
                 LocalDateTimeUtil.localDateTime2Mills(localDate.atStartOfDay()));
     }
 
@@ -88,7 +88,7 @@ class LocalDateTimeUtilTest {
         log.info("Date: {}, LocalDate: {}", date, localDateTime);
         log.info("Date: {}, LocalDate: {}", date.getTime(),
                 LocalDateTimeUtil.localDateTime2Mills(localDateTime));
-        Assert.assertEquals(date.getTime(),
+        Assertions.assertEquals(date.getTime(),
                 LocalDateTimeUtil.localDateTime2Mills(localDateTime));
     }
 
@@ -98,7 +98,7 @@ class LocalDateTimeUtilTest {
         LocalDateTime rs = LocalDateTimeUtil.seconds2LocalDateTime(seconds);
         log.info("秒时间戳：{}, 时间：{}", seconds, rs);
         LocalDateTime ldt = LocalDateTime.of(2020, 10, 11, 12, 13, 14, 0);
-        Assert.assertEquals(ldt, rs);
+        Assertions.assertEquals(ldt, rs);
     }
 
     @Test
@@ -107,7 +107,7 @@ class LocalDateTimeUtilTest {
         LocalDateTime end = LocalDateTime.now().plusDays(1);
         boolean rs = LocalDateTimeUtil.containsToday(start, end);
         log.info("start：{}, end：{}, containsToday：{}", start, end, rs);
-        Assert.assertTrue(rs);
+        Assertions.assertTrue(rs);
     }
 
 }

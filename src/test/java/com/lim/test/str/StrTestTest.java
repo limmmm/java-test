@@ -1,7 +1,7 @@
 package com.lim.test.str;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -14,12 +14,12 @@ import org.junit.jupiter.api.Test;
 class StrTestTest {
 
     @Test
-    void null2String() {
+    public void null2String() {
         Integer a = null;
         // b对象不为null，字符串值为"null"
         String b = String.valueOf(a);
         log.info("{}", b);
-        Assert.assertEquals("null", b);
+        Assertions.assertEquals("null", b);
     }
 
 }
