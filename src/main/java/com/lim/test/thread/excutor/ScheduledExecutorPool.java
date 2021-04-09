@@ -36,6 +36,34 @@ public class ScheduledExecutorPool {
         scheduledExecutorService.shutdown();
     }
 
+    public static void main(String[] args) throws InterruptedException {
+        scheduleOnce();
+    }
+
+    /**
+     * 使用Executors创建
+     */
+    public static void scheduleOnce() throws InterruptedException {
+//        ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1);
+        ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1,
+                r -> {
+                    Thread thread = new Thread(r, "schedule");
+                    thread.setDaemon(true);
+                    thread.setPriority(Thread.NORM_PRIORITY);
+                    return thread;
+                });
+//        ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1, getThreadFactory());
+
+        scheduledExecutorService.schedule(getRunnable(), 1, TimeUnit.SECONDS);
+//        Thread.sleep(2000);
+        log.info("{}", scheduledExecutorService.isTerminated());
+        scheduledExecutorService.schedule(getRunnable(), 5, TimeUnit.SECONDS);
+//        scheduledExecutorService.shutdown();
+        Thread.sleep(10000);
+        log.info("{}", scheduledExecutorService.isTerminated());
+
+    }
+
     /**
      * 创建Runnable
      */

@@ -71,4 +71,37 @@ public class ThreadPool {
             });
         }
     }
+
+    /**
+     * 每次执行一个任务
+     */
+    public static void singleThreadExecutor2() {
+        ExecutorService executorService = new ThreadPoolExecutor(1, 1,
+                0L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<Runnable>(10),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.DiscardOldestPolicy());
+
+        for (int i = 0; i < 10; i++) {
+            int finalI = i;
+            executorService.submit(() -> {
+                log.info("{}, {}", finalI, finalI == 5);
+                if (finalI == 5) {
+                    log.info("i1, {}", 111111);
+                    int i1 = Integer.parseInt("aaaaa");
+                    log.info("i1, {}", i1);
+                }
+                log.info("{}", Thread.currentThread().getName());
+            });
+/*            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }*/
+        }
+    }
+
+    public static void main(String[] args) {
+        singleThreadExecutor2();
+    }
 }
